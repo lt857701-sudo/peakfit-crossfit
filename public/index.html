@@ -51,9 +51,6 @@
       color: #ffffff;
       overflow-x: hidden;
     }
-    .neon-glow {
-      box-shadow: 0 0 25px rgba(198, 243, 70, 0.35);
-    }
     /* Subtle vignette and text contrast on left, keeping athletes crisp, clear and well lit */
     .hero-bg-overlay {
       background: linear-gradient(90deg, rgba(11, 13, 14, 0.94) 0%, rgba(11, 13, 14, 0.78) 32%, rgba(11, 13, 14, 0.35) 55%, rgba(11, 13, 14, 0.05) 75%, rgba(11, 13, 14, 0.35) 100%),
@@ -88,7 +85,7 @@
 </nav>
 <!-- Header CTA Button -->
 <div>
-<a class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#C6F346] text-black font-bold text-sm tracking-wide transition-all duration-200 hover:bg-[#b4e830] hover:shadow-lg hover:shadow-[#C6F346]/20" href="#comece">
+<a class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#C6F346] text-black font-bold text-sm tracking-wide transition-all duration-200 hover:bg-[#b4e830] shadow-lg" href="#comece">
         Comece Agora
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
 <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -107,7 +104,7 @@
 </div>
 <!-- Background Slogan Decoration (Subtle Right) -->
 <div class="hidden lg:block absolute right-12 xl:right-20 top-28 select-none pointer-events-none opacity-40 text-right z-10">
-<p class="text-2xl xl:text-3xl font-black uppercase tracking-widest text-gray-300 leading-tight drop-shadow">
+<p class="text-2xl xl:text-3xl font-black uppercase tracking-widest text-gray-300 leading-tight">
         Disciplina<br>Constrói<br><span class="text-[#C6F346]">Resultados</span>
 </p>
 <div class="h-1 w-24 bg-[#C6F346] ml-auto mt-3 rounded-full"></div>
@@ -115,30 +112,25 @@
 <!-- Main Content Container -->
 <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-20 w-full pt-8">
 <div class="max-w-2xl">
-<!-- Subheading Tag -->
-<div class="inline-flex items-center gap-2 mb-4 tracking-widest text-xs md:text-sm font-semibold uppercase text-gray-300">
-<span class="">Mais que uma</span>
-<span class="text-[#C6F346] font-bold">Academia</span>
-</div>
 <!-- Main Headline -->
-<h1 class="text-4xl sm:text-5xl lg:text-[4.2rem] font-black uppercase leading-[1.08] tracking-tight mb-6 drop-shadow-md">
+<h1 class="text-4xl sm:text-5xl lg:text-[4.2rem] font-black uppercase leading-[1.08] mb-6">
           Um corpo mais <br>
 <span class="text-[#C6F346]">Forte, Saudável</span> <br>
           e Feliz.
         </h1>
 <!-- Subtitle Paragraph -->
-<p class="text-base sm:text-lg text-gray-300 font-normal leading-relaxed mb-8 max-w-xl drop-shadow">
+<p class="text-base sm:text-lg text-gray-300 font-normal leading-relaxed mb-8 max-w-xl">
           Treine com especialistas, em um ambiente completo e motivador. Tudo o que você precisa para evoluir, está aqui.
         </p>
 <!-- CTA Buttons -->
 <div id="comece" class="flex flex-wrap items-center gap-4 mb-16">
-<a class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#C6F346] text-black font-extrabold text-sm sm:text-base tracking-wide transition-all duration-200 hover:bg-[#b4e830] shadow-lg shadow-[#C6F346]/25" href="#comece">
+<a class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#C6F346] text-black font-extrabold text-sm sm:text-base tracking-wide transition-all duration-200 hover:bg-[#b4e830] shadow-lg" href="#comece">
             Comece Sua Jornada
             <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round"></path>
 </svg>
 </a>
-<a class="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-black/50 backdrop-blur-sm border border-gray-600 text-white font-semibold text-sm sm:text-base hover:bg-white/10 hover:border-gray-400 transition-all" href="#planos">
+<a class="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#15181C] border border-[#C6F346]/30 text-white font-semibold text-sm sm:text-base hover:bg-[#C6F346]/10 hover:border-[#C6F346]/50 transition-all" href="#treinos">
             Ver Planos
           </a>
 </div>
@@ -247,7 +239,6 @@
 <!-- Section Header -->
 <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
 <div>
-<span class="text-xs font-bold uppercase tracking-wider text-[#C6F346]">Nossos Programas</span>
 <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-1">Encontre o Programa Ideal Para Você</h2>
 </div>
 <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-300 hover:text-[#C6F346] transition-colors" href="#todos-programas">
@@ -354,7 +345,6 @@
 <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-transparent to-[#15181D]"></div>
 </div>
 <div class="p-8 md:p-10 w-full md:w-1/2 z-10">
-<span class="text-xs font-extrabold uppercase tracking-widest text-[#C6F346]">Dê o Seu Melhor</span>
 <h3 class="text-3xl font-black text-white mt-2 leading-tight">Seu Único Limite É Você</h3>
 <p class="text-xs md:text-sm text-gray-300 mt-3 leading-relaxed">
               Acreditamos que o fitness vai além do físico: é sobre mentalidade, atitude e superação diária.
@@ -372,7 +362,6 @@
 <!-- Our Impact In Numbers (Right Grid) -->
 <div class="lg:col-span-5 bg-[#15181D] rounded-3xl p-8 md:p-10 border border-white/5 flex flex-col justify-between">
 <div>
-<span class="text-xs font-bold uppercase tracking-wider text-[#C6F346]">Nosso Impacto em Números</span>
 <div class="grid grid-cols-2 gap-6 mt-6">
 <!-- Item 1 -->
 <div class="bg-[#1A1E24] p-5 rounded-2xl border border-white/5">
@@ -427,7 +416,6 @@
 <!-- Section Title & Navigation -->
 <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
 <div>
-<span class="text-xs font-bold uppercase tracking-wider text-[#C6F346]">O Que Nossos Alunos Dizem</span>
 <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-1">Pessoas Reais. Resultados Reais.</h2>
 </div>
 <div class="flex items-center gap-4">
@@ -508,7 +496,6 @@
 <!-- Section Title -->
 <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
 <div>
-<span class="text-xs font-bold uppercase tracking-wider text-[#C6F346]">Do Nosso Blog</span>
 <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-1">Dicas e Insights para sua Evolução</h2>
 </div>
 <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-300 hover:text-[#C6F346] transition-colors" href="#todos-artigos">
