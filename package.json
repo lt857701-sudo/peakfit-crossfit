@@ -1,0 +1,10 @@
+{
+  "name": "peakfit-crossfit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PEAKFIT - Mais Que Uma Academia",
+  "scripts": {
+    "dev": "python -m http.server 8000 --directory public",
+    "start": "python -m http.server 8000 --directory public"
+  }
+}
