@@ -59,7 +59,68 @@
     .bottom-hero-fade {
       background: linear-gradient(to top, #0b0d0e 0%, rgba(11, 13, 14, 0) 100%);
     }
+
+    /* Hero enter animation — Jakub recipe: opacity + translateY + blur, ease-out ~0.45s */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(4px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    .animate-hero-text {
+      animation: fadeInUp 0.5s ease-out backwards;
+    }
+    .animate-hero-sub {
+      animation: fadeInUp 0.5s ease-out 0.1s backwards;
+    }
+    .animate-hero-cta {
+      animation: fadeInUp 0.5s ease-out 0.2s backwards;
+    }
+    .animate-hero-stats {
+      animation: fadeInUp 0.5s ease-out 0.3s backwards;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animate-hero-text,
+      .animate-hero-sub,
+      .animate-hero-cta,
+      .animate-hero-stats {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+      }
+    }
   </style>
+  <script>
+    (function() {
+      const els = document.querySelectorAll('.animate-hero-text, .animate-hero-sub, .animate-hero-cta, .animate-hero-stats');
+      function run() {
+        els.forEach(el => {
+          el.classList.remove('animate-hero-text', 'animate-hero-sub', 'animate-hero-cta', 'animate-hero-stats');
+          void el.offsetHeight; // force reflow
+          el.classList.add(
+            el.matches('h1') ? 'animate-hero-text' :
+            el.matches('p.animate-hero-sub') ? 'animate-hero-sub' :
+            el.id === 'comece' ? 'animate-hero-cta' :
+            'animate-hero-stats'
+          );
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', run);
+      } else {
+        run();
+      }
+    })();
+  </script>
 </head>
 <body class="bg-[#0B0D0E] text-white antialiased selection:bg-[#C6F346] selection:text-black">
 <!-- BEGIN: MainHeader -->
@@ -124,17 +185,17 @@
 <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-20 w-full pt-8">
 <div class="max-w-2xl">
 <!-- Main Headline -->
-<h1 class="text-3xl sm:text-4xl lg:text-[4.2rem] font-black uppercase tracking-wider mb-6" style="line-height: 1.35;">
+<h1 class="text-3xl sm:text-4xl lg:text-[4.2rem] font-black uppercase tracking-wider mb-6 animate-hero-text" style="line-height: 1.35;">
           Um corpo mais <br>
 <span class="text-[#C6F346]">Forte, Saudável</span> <br>
           e Feliz.
         </h1>
 <!-- Subtitle Paragraph -->
-<p class="text-base sm:text-lg text-gray-300 font-normal leading-relaxed mb-8 max-w-xl">
+<p class="text-base sm:text-lg text-gray-300 font-normal leading-relaxed mb-8 max-w-xl animate-hero-sub">
           Treine com especialistas, em um ambiente completo e motivador. Tudo o que você precisa para evoluir, está aqui.
         </p>
 <!-- CTA Buttons -->
-<div id="comece" class="flex flex-col sm:flex-row sm:items-start gap-4 mb-10 sm:mb-16">
+<div id="comece" class="flex flex-col sm:flex-row sm:items-start gap-4 mb-10 sm:mb-16 animate-hero-cta">
 <a class="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-7 py-3.5 rounded-full bg-[#C6F346] text-black font-extrabold text-sm sm:text-base tracking-wide transition-all duration-200 hover:bg-[#b4e830] shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C6F346] focus-visible:ring-offset-2 focus-visible:ring-offset-black" href="#comece">
             Comece Sua Jornada
             <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,7 +207,7 @@
           </a>
 </div>
 <!-- Key Metrics Strip -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-6 border-t border-white/20 max-w-full sm:max-w-lg backdrop-blur-sm bg-black/20 p-4 sm:p-6 rounded-xl" data-purpose="hero-stats">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-6 border-t border-white/20 max-w-full sm:max-w-lg backdrop-blur-sm bg-black/20 p-4 sm:p-6 rounded-xl animate-hero-stats" data-purpose="hero-stats">
 <!-- Metric 1 -->
 <div class="flex items-center gap-3">
 <div class="text-[#C6F346]">
