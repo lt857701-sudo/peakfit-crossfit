@@ -1,45 +1,43 @@
 # Progresso da Auditoria - PEAKFIT CrossFit
 
 ## ETAPA 1 — Inspecionar estrutura, skill e estado do Git
-- [x] Estrutura mapeada: public/index.html (única página, 703+ linhas), src/css, src/js, src/components, public/assets/images
-- [x] Skill Impeccable instalada e funcional (launcher .cmd), contexto resolvido via `impeccable context`
-- [x] Git inicializado e commits feitos
+- [x] Estrutura mapeada: public/index.html, src/css, src/js, src/components, public/assets/images
+- [x] Skill Impeccable instalada e funcional (launcher .cmd); `impeccable context` resolvido sem drift
+- [x] Git inicializado; 4 commits feitos
 - [x] package.json, .gitignore, README.md, progress.md criados
-- [x] Servidor no ar em http://localhost:8000 (python http.server, pasta public/, segundo plano)
+- [x] Servidor no ar em http://localhost:8000 (python http.server, pasta public/, segundo plano, sem janela)
 
 ## ETAPA 2 — Identificar páginas, rotas e componentes compartilhados
-Páginas: 1 (index.html, landing page única)
+Páginas: 1 (index.html, landing única)
 Seções: MainHeader, HeroSection (#inicio), FeaturesHighlightBar, ProgramsSection (#treinos), ImpactAndBannerSection, TestimonialsSection (#avaliacoes), BlogSection (#blog), MainFooter
-Stack: HTML estático + Tailwind CSS CDN + Google Fonts (Plus Jakarta Sans) + SVGs inline
 
 ## ETAPA 3 — Executar auditoria técnica e crítica visual com Impeccable
-- [x] `impeccable detect --json public/index.html` rodado (antes e depois das correções)
-- [x] `skipped-heading` resolvido (desapareceu do relatório)
-- [x] `flat-type-hierarchy` persiste no detector (leitura estática limitada, não processa Tailwind CDN; no render h1 ~4rem, h2 text-lg > body 16px — hierarquia adequada)
-- [x] `overused-font` (Plus Jakarta Sans) — identidade visual preservada, aceito
-- [x] `nested-cards` (4x) — escolha de design existente, baixo risco de reescrever, aceito como P3
-- [x] `dark-glow` — identidade visual (CTA lime), aceito como P3
+- [x] `impeccable detect --json public/index.html` (antes e depois)
+- [x] `impeccable doctor` — sem drift
+- [x] `skipped-heading`: REMOVIDO do relatório
+- [x] `dark-glow`: REMOVIDO do relatório
+- [x] `overused-font` (Plus Jakarta Sans): identidade preservada, aceito (P3)
+- [x] `flat-type-hierarchy`: falso positivo estático (não lê Tailwind CDN); render real tem h1 ~2rem > body 16px
+- [x] `nested-cards` (4x): escolha de design existente, baixo risco, aceito (P3)
 
-## ETAPA 4 — Inventário de problemas priorizados
-P1 (feito):
-- [x] Links internos quebrados (#estrutura→#treinos, #planos→#comece, #sobre→#inicio)
-- [x] ids ausentes (#comece, #avaliacoes, #blog adicionados)
-- [x] Hierarquia de headings (features h3→h2, depoimentos h5→h3)
-- [x] Touch targets botões depoimento (36px→44px)
+## ETAPA 4 — Inventário priorizado (AUDITORIA.md criado)
+Total: 13/20 — Acceptable
+- A11y: 3/4 | Performance: 2/4 | Teming: 2/4 | Responsividade: 3/4 | Integridade: 3/4
 
-P2 (feito):
-- [x] Lazy loading + decoding async nas imagens abaixo da dobra
-- [x] Meta tags SEO (description, robots, canonical, Open Graph, Twitter)
-- [x] sitemap.xml e robots.txt criados
+## ETAPA 5 — Correções aplicadas (P1/P2/P3 reversíveis)
+Commit 59eee8c: craft-floor — remover eyebrows/kickers, glow zero-offset, drop-shadow, glassmorphism decorativo
+Commits anteriores: links internos, ids, headings, touch targets 44px, lazy loading, SEO meta, sitemap, robots.txt
+Commit final: foco visível (focus-visible:ring) para navegação por teclado
 
-P3 (pendente/aceito):
-- [ ] Links rodapé para páginas inexistentes (privacidade, termos, cookies, faq, membership) — pendentes, requerem criação de páginas (autorização do usuário)
-- [ ] Contraste verificado manualmente (OK: texto ≥ 7:1)
-- [ ] Responsividade em 360/390/430/768/1024/1280/1440 — classes Tailwind responsivas presentes, validar render
+## ETAPA 6 — Validação
+- [x] Servidor responde 200 para /, /robots.txt, /sitemap.xml
+- [x] `impeccable detect` sem skipped-heading nem dark-glow
+- [x] `impeccable doctor` sem drift
+- [ ] Render visual em 360/390/430/768/1024/1280/1440px (pendente — abrir no navegador)
 
-## ETAPA 5-6 — Correções aplicadas e commitadas
-Commit c840225: fix P1 links/headings/touch targets/lazy/SEO
-Commit posterior: feat SEO sitemap/robots
+## ETAPA 7-10 — Pendentes
+- [ ] Validar responsividade nos breakpoints de teste
+- [ ] Criar páginas para links do rodapé (privacidade, termos, cookies, faq, membership) — requer autorização do usuário
+- [ ] Subir ao GitHub e fazer deploy na Vercel (próximos passos após validação)
 
-## Próxima tarefa
-Validar render no navegador em diferentes larguras; confirmar sem regressões; então rodar `impeccable polish` e preparar GitHub/Vercel.
+Arquivos modificados: public/index.html (principal), public/robots.txt, public/sitemap.xml, AUDITORIA.md, progress.md, package.json, .gitignore, README.md
